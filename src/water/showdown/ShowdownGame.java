@@ -1,4 +1,4 @@
-package water;
+package water.showdown;
 
 import static java.util.Collections.max;
 import static java.util.Comparator.comparing;
@@ -8,6 +8,7 @@ import static java.util.stream.Collectors.joining;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import water.Utils;
 
 
 /**
@@ -34,11 +35,7 @@ public class ShowdownGame {
     gameOver();
   }
 
-  private void nameThemselves() {
-    for (int i = 0; i < players.size(); i++) {
-      players.get(i).nameSelf(i + 1);
-    }
-  }
+
 
   private void drawHands() {
     int deckSize = deck.size();

@@ -1,19 +1,17 @@
-package water;
+package game.base;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * @author - johnny850807@gmail.com (Waterball)
  */
-public class Hand implements Iterable<Card> {
+public class Hand<Card> implements Iterable<Card> {
     private final List<Card> cards = new ArrayList<>();
 
     public void addCard(Card card) {
-        if (cards.size() >= 13) {
-            throw new IllegalStateException("The hand's size must not exceed 13.");
-        }
         cards.add(card);
     }
 
@@ -21,7 +19,7 @@ public class Hand implements Iterable<Card> {
         return cards.get(index);
     }
 
-    public Card show(int index) {
+    public Card play(int index) {
         return cards.remove(index);
     }
 
@@ -32,5 +30,17 @@ public class Hand implements Iterable<Card> {
     @Override
     public Iterator<Card> iterator() {
         return cards.iterator();
+    }
+
+    public boolean isEmpty() {
+        return cards.isEmpty();
+    }
+
+    public Stream<Card> stream() {
+        return cards.stream();
+    }
+
+    public List<Card> asList() {
+        return cards;
     }
 }

@@ -1,4 +1,4 @@
-package water;
+package water.showdown;
 
 import static java.util.Objects.requireNonNull;
 import static java.util.Optional.empty;
