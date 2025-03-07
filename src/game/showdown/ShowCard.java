@@ -1,27 +1,25 @@
 package game.showdown;
 
-/**
- * @author - johnny850807@gmail.com (Waterball)
- */
 public class ShowCard implements Comparable<ShowCard> {
-    private final Player player;
-    private final Card card;
 
-    public ShowCard(Player player, Card card) {
-        this.player = player;
-        this.card = card;
-    }
+  private final Player player;
+  private final ShowdownCard showdownCard;
 
-    @Override
-    public int compareTo(ShowCard o) {
-        return card.compareTo(o.getCard());
-    }
+  public ShowCard(Player player, ShowdownCard showdownCard) {
+    this.player = player;
+    this.showdownCard = showdownCard;
+  }
 
-    public Player getPlayer() {
-        return player;
-    }
+  @Override
+  public int compareTo(ShowCard o) {
+    return showdownCard.compareTo(o.getCard());
+  }
 
-    public Card getCard() {
-        return card;
-    }
+  public Player getPlayer() {
+    return player;
+  }
+
+  public ShowdownCard getCard() {
+    return showdownCard;
+  }
 }

@@ -4,9 +4,6 @@ import java.util.List;
 
 import static game.utils.Utils.printf;
 
-/**
- * @author - johnny850807@gmail.com (Waterball)
- */
 public abstract class CardGame<Player extends game.base.Player<Card>, Card> {
     protected List<Player> players;
     protected final Deck<Card> deck;

@@ -6,24 +6,24 @@ package game.uno;
 public class TurnMove {
     private final Player player;
     private final boolean pass;
-    private final Card card;
+    private final UnoCard unoCard;
 
-    private TurnMove(Player player, boolean pass, Card card) {
+    private TurnMove(Player player, boolean pass, UnoCard unoCard) {
         this.player = player;
         this.pass = pass;
-        this.card = card;
+        this.unoCard = unoCard;
     }
 
     public static TurnMove pass(Player player) {
         return new TurnMove( player, true, null);
     }
 
-    public static TurnMove play(Player player, Card card) {
-        return new TurnMove(player, false, card);
+    public static TurnMove play(Player player, UnoCard unoCard) {
+        return new TurnMove(player, false, unoCard);
     }
 
-    public Card getCard() {
-        return card;
+    public UnoCard getCard() {
+        return unoCard;
     }
 
     public boolean isPass() {
@@ -35,6 +35,6 @@ public class TurnMove {
     }
 
     public void undo() {
-        player.addHandCard(card);
+        player.addHandCard(unoCard);
     }
 }

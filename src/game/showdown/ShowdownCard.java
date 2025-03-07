@@ -2,10 +2,8 @@ package game.showdown;
 
 import static java.lang.String.format;
 
-/**
- * @author - johnny850807@gmail.com (Waterball)
- */
-public class Card implements Comparable<Card> {
+
+public class ShowdownCard implements Comparable<ShowdownCard> {
     private final Suit suit;
     private final Rank rank;
 
@@ -60,18 +58,18 @@ public class Card implements Comparable<Card> {
         }
     }
 
-    public Card(Suit suit, Rank rank) {
+    public ShowdownCard(Suit suit, Rank rank) {
         this.suit = suit;
         this.rank = rank;
     }
 
     @Override
-    public int compareTo(Card card) {
+    public int compareTo(ShowdownCard showdownCard) {
         // game.showdown
-        if (this.getRank().getOrder() == card.getRank().getOrder()) {
-            return this.getSuit().getOrder() - card.getSuit().getOrder();
+        if (this.getRank().getOrder() == showdownCard.getRank().getOrder()) {
+            return this.getSuit().getOrder() - showdownCard.getSuit().getOrder();
         }
-        return this.getRank().getOrder() - card.getRank().getOrder();
+        return this.getRank().getOrder() - showdownCard.getRank().getOrder();
     }
 
     public Suit getSuit() {

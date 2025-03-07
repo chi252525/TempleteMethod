@@ -1,13 +1,11 @@
 package game.showdown;
 
-/**
- * @author - johnny850807@gmail.com (Waterball)
- */
-public abstract class Player extends game.base.Player<Card> {
+
+public abstract class Player extends game.base.Player<ShowdownCard> {
     protected int point;
     protected Showdown showdown;
 
-    protected abstract Card takeTurn();
+    protected abstract ShowdownCard takeTurn();
 
     public void setShowdown(Showdown showdown) {
         this.showdown = showdown;

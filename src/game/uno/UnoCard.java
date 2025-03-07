@@ -5,7 +5,7 @@ import static java.lang.String.format;
 /**
  * @author - johnny850807@gmail.com (Waterball)
  */
-public class Card {
+public class UnoCard {
     private final int number;
     private final Color color;
 
@@ -13,7 +13,7 @@ public class Card {
         BLUE, RED, YELLOW, GREEN
     }
 
-    public Card(int number, Color color) {
+    public UnoCard(int number, Color color) {
         this.number = validateNumber(number);
         this.color = color;
     }

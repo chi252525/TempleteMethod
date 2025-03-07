@@ -25,7 +25,7 @@ public class HumanPlayer extends Player {
     }
 
     @Override
-    protected Card takeTurn() {
+    protected ShowdownCard takeTurn() {
         printCardSelections();
         try {
             int choice = in.nextInt();

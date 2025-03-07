@@ -7,9 +7,9 @@ import java.util.List;
 /**
  * @author - johnny850807@gmail.com (Waterball)
  */
-public class Uno extends CardGame<Player, Card> {
+public class Uno extends CardGame<Player, UnoCard> {
     private final Deck discards = new Deck();
-    private Card topCard;
+    private UnoCard topUnoCard;
 
     public Uno(Deck deck, List<Player> players) {
         super(deck, players);
@@ -22,12 +22,12 @@ public class Uno extends CardGame<Player, Card> {
 
     @Override
     protected void onGameBegins() {
-        topCard = deck.draw();
+        topUnoCard = deck.draw();
     }
 
     @Override
     protected void takeTurn(Player player) {
-        TurnMove turnMove = player.takeTurn(topCard);
+        TurnMove turnMove = player.takeTurn(topUnoCard);
         if (turnMove.isPass()) {
             pass(player);
         } else {
@@ -40,9 +40,9 @@ public class Uno extends CardGame<Player, Card> {
     }
 
     private boolean isValidMove(TurnMove turnMove) {
-        Card card = turnMove.getCard();
-        return topCard.getColor() == card.getColor() ||
-                topCard.getNumber() == card.getNumber();
+        UnoCard unoCard = turnMove.getCard();
+        return topUnoCard.getColor() == unoCard.getColor() ||
+                topUnoCard.getNumber() == unoCard.getNumber();
     }
 
     private void pass(Player player) {
@@ -52,11 +52,11 @@ public class Uno extends CardGame<Player, Card> {
     }
 
     private void playCard(Player player, TurnMove turnMove) {
-        if (topCard != null) {
-            discards.push(topCard);
+        if (topUnoCard != null) {
+            discards.push(topUnoCard);
         }
-        topCard = turnMove.getCard();
-        System.out.printf("Player %s plays a %s.\n", player.getName(), topCard);
+        topUnoCard = turnMove.getCard();
+        System.out.printf("Player %s plays a %s.\n", player.getName(), topUnoCard);
     }
 
     private void reshuffleDeckIfEmpty() {

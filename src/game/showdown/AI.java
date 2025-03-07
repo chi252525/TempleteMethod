@@ -16,7 +16,7 @@ public class AI extends Player {
     }
 
     @Override
-    protected Card takeTurn() {
+    protected ShowdownCard takeTurn() {
         if (getHand().size() == 1) {
             return getHand().get(0);
         }

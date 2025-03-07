@@ -1,9 +1,7 @@
 package game.base;
 
 
-/**
- * @author - johnny850807@gmail.com (Waterball)
- */
+
 public abstract class Player<Card> {
     protected Hand<Card> hand = new Hand<>();
     protected String name;

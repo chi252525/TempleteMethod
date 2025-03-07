@@ -18,10 +18,10 @@ public class AI extends Player {
     }
 
     @Override
-    public TurnMove takeTurn(Card topCard) {
-        int[] legalCardIndices = topCard == null ?
+    public TurnMove takeTurn(UnoCard topUnoCard) {
+        int[] legalCardIndices = topUnoCard == null ?
                 range(0, hand.size()).toArray() :
-                filterLegalCardIndices(topCard);
+                filterLegalCardIndices(topUnoCard);
 
         if (legalCardIndices.length == 0) {
             return pass(this);
@@ -30,9 +30,9 @@ public class AI extends Player {
         return play(this, hand.play(choice));
     }
 
-    private int[] filterLegalCardIndices(Card topCard) {
+    private int[] filterLegalCardIndices(UnoCard topUnoCard) {
         return range(0, hand.size())
-                .filter(i -> hand.get(i).getColor() == topCard.getColor() ||
-                        hand.get(i).getNumber() == topCard.getNumber()).toArray();
+                .filter(i -> hand.get(i).getColor() == topUnoCard.getColor() ||
+                        hand.get(i).getNumber() == topUnoCard.getNumber()).toArray();
     }
 }
